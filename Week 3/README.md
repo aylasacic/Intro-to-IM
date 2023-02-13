@@ -25,14 +25,16 @@ move() {
 
 The asteroid belt was another point of concern. I wanted to contain it in one place, so that it can be considered one object. Although I could have just used for loops outside of the code, I created another class which made it easier to control the specific parameters of the belt such as the size and number of circles.
 
-// Asteroid belt 
-class Belt {
-  constructor(m, n) {
-    // Number of belts
-    this.n_belts = m;
-    
+
+
+
+    // Asteroid belt 
+    class Belt {
+    constructor(m, n) {
     // Number of asteroids in belt
     this.n_rocks = n;
+    // Number of belts
+    this.n_belts = m;
     
     // Array for storing asteroid objects
     this.beltArray = [];
