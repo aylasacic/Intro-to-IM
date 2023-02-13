@@ -9,6 +9,7 @@ Link: https://editor.p5js.org/ajlasacic/full/GIWVhC73H
 Challenges:
 To start off, circular motion was hard to think about when working with OOP. Since I was working with many orbits, it was a struggle to spread them adequately across the screen. The model is obviously scaled down, it is an artistic representation of the system, but managing the distances between the planets and setting up the asteroid belt was really tricky and took some fiddling to get right.
 
+```
  this.display = function () {
     fill(this.color);
     ellipse(this.x, this.y, this.radius);
@@ -22,12 +23,13 @@ move() {
 
   this.angle++;
 }
+```
 
 The asteroid belt was another point of concern. I wanted to contain it in one place, so that it can be considered one object. Although I could have just used for loops outside of the code, I created another class which made it easier to control the specific parameters of the belt such as the size and number of circles.
 
 
 
-
+```
     // Asteroid belt 
     class Belt {
     constructor(m, n) {
@@ -42,7 +44,7 @@ The asteroid belt was another point of concern. I wanted to contain it in one pl
 
   // Produces a 2d array - this.beltArray[] 
   add_asteroids() {
-    for (let i = 1; i <= this.n_belts + 1; i++) {
+   for (let i = 1; i <= this.n_belts + 1; i++) {
       let belt = [];
       for (let j = 1; j <= this.n_rocks; j++) {
         belt[j] = new Celestial(
@@ -69,15 +71,19 @@ The asteroid belt was another point of concern. I wanted to contain it in one pl
     }
   }
 }
+```
 
 Unfortunately, when I came to that point, my code got deleted. In all honesty, it was my fault since I did not save the file once before leaving my workstation. From then on, it took another couple of hours to get back to my original progress, but I was devastated for quite some time because a split second was all it took to lose hours of work.
 I was struggling to create the trail effect. In the beginning, I was trying to write more code in order to make it appear behind the celestial object. In the end, I realized that if I decrease the alpha of the background, a nice trail should be left behind by the celestial objects.
 
+```
 // Opacity can change for trail effect of moving objects
   background(0,0,0, opacity);
-  
+ ```
+ 
 Finally, in order to introduce some creativity, I wondered whether an orbit can be drawn for each planet. For some time I tried to create it within the class, but since my Belt class creates instances of the Celestial class, it would make an orbit for each asteroid as well. I settled for creating a separate orbit() function that uses the start variable to size the orbits. Unlike C++ I could not make getter functions, so I could not extract radii for the planets.
 
+```
 function orbits() {
   // Sun glow
   for (let i = 0; i < 50; i++) {
@@ -105,6 +111,7 @@ function mousePressed() {
 function mouseReleased() {
   val = 0;
 }
+```
 
 Reflection:
 Overall, I am satisfied by the look of the project. I altered some CSS parameters to make the canvas corners rounded which gives a nice effect to the piece. Although we can intuitively realize that this is our solar system, I wished to add more detail to the planets. For example, Saturn's rings and Earth's life, i.e., greenery. Unfortunately, since I lost all of my progress and had to trace my steps in order to remake the piece, I was left with little time to try and achieve that. Although I could have created a Saturn class, I wanted to make use of OOP and use one class for all planets. I am very happy with the trail and glow effect I created by utilizing the alpha variable of fill. In the future, I wish to create pieces that are more artistic, perhaps expressionist, but since I am not used to combining art with OOP, I know it will take some time. 
